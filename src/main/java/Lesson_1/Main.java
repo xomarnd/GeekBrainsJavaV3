@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+
         // task 01
         Integer[] intArr = new Integer[2];
 
