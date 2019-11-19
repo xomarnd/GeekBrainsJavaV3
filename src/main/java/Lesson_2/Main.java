@@ -17,7 +17,6 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static Connection conn;
     private static Statement stmt;
-    private static PreparedStatement pstmt;
 
     public static void main(String[] args) throws SQLException {
         try {
@@ -174,11 +173,13 @@ public class Main {
 
     public static void searchRangePrice(double start, double end) throws SQLException {
         ResultSet result = stmt.executeQuery("SELECT * FROM " + TABLENAME + " WHERE price BETWEEN " + start + " AND " + end +";");
-
+        int count = 0;
         while (result.next()) {
+            count++;
             Product product  = new Product(result.getString(2), result.getInt(3));
             product.showInfo();
         }
+        if (count == 0) System.err.println ("Нет результатов поиска.");;
     }
 
     private static Product getProductByName(String name) throws SQLException {
