@@ -172,7 +172,11 @@ public class Main {
     }
 
     public static void searchRangePrice(double start, double end) throws SQLException {
-        ResultSet result = stmt.executeQuery("SELECT * FROM " + TABLENAME + " WHERE price BETWEEN " + start + " AND " + end +";");
+        System.out.println (start);
+        System.out.println (end);
+//        ResultSet result = stmt.executeQuery("SELECT * FROM " + TABLENAME + " WHERE price BETWEEN " + start + " AND " + end +";");
+        ResultSet result = stmt.executeQuery(String.format("SELECT * FROM %s WHERE price BETWEEN %g AND %g;", TABLENAME, start, end));
+
         int count = 0;
         while (result.next()) {
             count++;
