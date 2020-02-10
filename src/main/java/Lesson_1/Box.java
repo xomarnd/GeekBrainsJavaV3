@@ -11,11 +11,9 @@ public class Box<T extends Fruit> {
         this.items = new ArrayList<T>(Arrays.asList(items));
     }
 
-
     public void addFruit(T... items) {
         this.items.addAll(Arrays.asList(items));
     }
-
 
     public void removeFruit(T... items) {
         for (T item: items) this.items.remove(item);
